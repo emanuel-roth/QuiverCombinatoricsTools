@@ -1,26 +1,18 @@
 # QuiverCombinatoricsTools
  
-AGQ computing project by Mia, Tudor, and Emanuel. See QuiverCombinatorics.pdf for our aims and goals.
+AGQ computing project by Mia, Tudor, and Emanuel.
 
-We wish to extend the SAGEmath package [QuiverTools](https://github.com/QuiverTools/QuiverTools) written by Pieter Bielmans, Hans Franzen, and Gianni Petrella. This is the extension of the package. You can read the documentation of QuiverTools as
+We hope to learn about the sage package [QuiverTools](https://github.com/QuiverTools/QuiverTools) written by Pieter Bielmans, Hans Franzen, and Gianni Petrella. We do this by copying the package here and using this repository to play around with it. WE DO NOT CLAIM OWNERSHIP OVER THEIR CODE.
+
+You can read the documentation of QuiverTools as
 
 * [a webpage](https://sage.quiver.tools)
 * [a pdf](https://sage.quiver.tools/documentation.pdf)
 
-A more detailed user guide is in the works.
-
 # Instructions
 
-You can install it by going into your sage environment, and ensuring you can get to this repository. Because it is private, you will have to install an ssh key! Make sure an .ssh/authorized_keys directory exists, then run
+You can install it by going into your sage environment, and running
 
-``nano ~/.ssh/authorized_keys``
+``pip install git+ssh://github.com/emanuel-roth/QuiverCombinatoricsTools``
 
-and add the following line
-
-``ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKHt2WDoUV+R+t2sjWwsRrhYqbJiZJJsoagfGoNnlDXb QuiverCombinatoricsTools``
-
-then exit nano. Now, enter the environment with your sage install, and run pip
-
-``pip install git+https://github.com/emanuel-roth/QuiverCombinatoricsTools``
-
-in any sage code, use `from quivercombinatorics import *` to get started.
+Then, in any sage code, use `from quivercombinatorics import *` to get started.
