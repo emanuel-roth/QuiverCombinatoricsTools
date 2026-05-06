@@ -2,7 +2,7 @@
  
 AGQ computing project by Mia, Tudor, and Emanuel.
 
-We hope to learn about the sage package [QuiverTools](https://github.com/QuiverTools/QuiverTools) written by Pieter Bielmans, Hans Franzen, and Gianni Petrella. We do this by copying the package here and using this repository to play around with it. WE DO NOT CLAIM OWNERSHIP OVER THEIR CODE.
+We hope to extend the sage package [QuiverTools](https://github.com/QuiverTools/QuiverTools) written by Pieter Bielmans, Hans Franzen, and Gianni Petrella. We do this by copying the package here and extending this repository.
 
 You can read the documentation of QuiverTools as
 
@@ -11,7 +11,19 @@ You can read the documentation of QuiverTools as
 
 # Instructions
 
-You can install it by going into your sage environment, and running
+Since this is a private repository for now, you can access it as follows. In your terminal, add an .ssh folder if you don't have it already
+
+``mkdir -p ~/.ssh``
+
+Then open nano to make authorized_keys
+
+``nano ~/.ssh/authorized_keys``
+
+and add this key to the file
+
+``ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKHt2WDoUV+R+t2sjWwsRrhYqbJiZJJsoagfGoNnlDXb QuiverCombinatoricsTools``
+
+Now you have the ssh deploy key for this repo! Where you have sage installed, run 
 
 ``pip install git+ssh://github.com/emanuel-roth/QuiverCombinatoricsTools``
 
