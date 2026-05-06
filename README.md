@@ -23,12 +23,20 @@ and add this key to the file
 
 ``ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKHt2WDoUV+R+t2sjWwsRrhYqbJiZJJsoagfGoNnlDXb QuiverCombinatoricsTools``
 
-log in to this repo (make sure this is the only SSH key GitHub knows)
+Then open nano in the ssh config
 
-``ssh -T git@github.com``
+``nano ~/.ssh/config``
+
+and add this
+
+Host github      
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
 
 Where you have sage installed, run 
 
-``pip install git+ssh://github.com/emanuel-roth/QuiverCombinatoricsTools``
+``pip install git+ssh://git@github.com/emanuel-roth/QuiverCombinatoricsTools.git``
 
 Then, in any sage code, use `from quivercombinatorics import *` to get started.
