@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="quiver",
+    name="quivercombinatorics",
     version="1.1",
     description="Work with quivers, their representations, and their moduli spaces",
     url="https://quiver.tools",
