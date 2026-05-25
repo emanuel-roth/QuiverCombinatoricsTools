@@ -24,36 +24,55 @@ jobs:
 
       - name: Install dependencies
         run: |
+          export DEBIAN_FRONTEND=noninteractive
           apt-get update
           apt-get install -y \
-            git \
-            tzdata make texlive texlive-latex-extra \
-            texlive-luatex latexmk fonts-freefont-otf \
-            xindy python3-sphinx
+            tzdata \
+            make \
+            texlive \
+            texlive-latex-extra \
+            texlive-luatex \
+            latexmk \
+            fonts-freefont-otf \
+            xindy \
+            python3-sphinx
 
           sage --pip install sphinx-book-theme
+          cd /tmp/build && rm -rf .git
           sage --pip install .
 
       - name: Build docs
         run: |
           cd docs
-          make html
-          make latexpdf
+          sage -sh -c "make html"
+          sage -sh -c "make latexpdf"
 
       - name: Prepare Pages folder
         run: |
           rm -rf docs/_site
           mkdir -p docs/_site
           touch docs/_build/html/.nojekyll
+          
           cp -r docs/_build/html/* docs/_site/
           
           mkdir -p docs/_site/pdf
-          cp docs/_build/latex/quivertools.pdf docs/_site/pdf/
+          cp docs/_build/latex/*.pdf docs/_site/pdf/
 
-      - name: Commit built docs
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_site
 
-          git add -f docs/_site
-          git diff --staged --quiet || ( git commit -m "Update documentation" && git push )
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
