@@ -9,9 +9,7 @@ on:
       - ".github/workflows/docs.yml"
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
@@ -22,17 +20,11 @@ jobs:
       options: --user root
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Debug package import
-        run: |
-          sage -python -c "import quiver_tools; print('IMPORT OK'); print(quiver_tools.__file__)"
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
           export DEBIAN_FRONTEND=noninteractive
-
           apt-get update
           apt-get install -y \
             tzdata \
@@ -45,58 +37,41 @@ jobs:
             xindy \
             python3-sphinx
 
-          sage --pip install sphinx
           sage --pip install sphinx-book-theme
-
-          # install your package into environment
-          mkdir -p /tmp/build
-          cp -r . /tmp/build/
-          cd /tmp/build
-          rm -rf .git
-
+          cd /tmp/build && rm -rf .git
           sage --pip install .
 
-      - name: Build documentation
+      - name: Build docs
         run: |
           cd docs
+          sage -sh -c "make html"
+          sage -sh -c "make latexpdf"
 
-          sage -sh -c "python3 -m sphinx.cmd.build -W --keep-going -b html . _build/html"
-          sage -sh -c "python3 -m sphinx.cmd.build -b latex . _build/latex"
-
-          cd _build/latex
-          latexmk -pdf -dvi- -ps- *.tex
-
-      - name: Prepare Pages artifact
+      - name: Prepare Pages folder
         run: |
-          rm -rf pages
-          mkdir -p pages
+          rm -rf docs/_site
+          mkdir -p docs/_site
+          touch docs/_build/html/.nojekyll
+          
+          cp -r docs/_build/html/* docs/_site/
+          
+          mkdir -p docs/_site/pdf
+          cp docs/_build/latex/*.pdf docs/_site/pdf/
 
-          cp -a docs/_build/html/. pages/
-          touch pages/.nojekyll
-
-          mkdir -p pages/pdf
-          cp docs/_build/latex/*.pdf pages/pdf/ || true
-
-          echo "Pages contents:"
-          ls -R pages
-
-      - name: Upload Pages artifact
+      - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages
+          path: docs/_site
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
