@@ -25,10 +25,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug package import
-        run: |
-          sage -python -c "import quiver_tools; print('IMPORT OK'); print(quiver_tools.__file__)"
-
       - name: Install dependencies
         run: |
           export DEBIAN_FRONTEND=noninteractive
