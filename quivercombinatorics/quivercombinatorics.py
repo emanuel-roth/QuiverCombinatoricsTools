@@ -62,7 +62,6 @@ def random_quiver(vertices, max_arrows_per_edge):
             sage: random_quiver(46, 25)
             a quiver with 46 vertices and 26388 arrows
             
-        
         """
     A = [[random.randint(0, max_arrows_per_edge) for _ in range(vertices)] for _ in range(vertices)]
     G = DiGraph(matrix(A))
@@ -133,7 +132,7 @@ def vector_decomposition(S, x):
     s = vector(S[0])
     decomps = vector_decomposition(x, S[1:]) 
     n = 1
-    while all(i >= 0 for i in x - x*s):
+    while all(i >= 0 for i in x - n*s):
         current = vector_decomposition(v - x*s, S[1:])
         current = [[[s,x]] + item for item in current]
         decomps = decomps + current
