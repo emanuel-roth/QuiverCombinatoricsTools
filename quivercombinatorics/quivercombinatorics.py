@@ -153,7 +153,7 @@ def small_decomposition(v, n):
         EXAMPLE::
         
             sage: from quivercombinatorics import *
-            sage: small_decomp((1, 1), 3)
+            sage: small_decomposition((1, 1), 3)
             [[[(1, 1), 1], [(1, 1), 1], [(1, 1), 1]],
             [[(1, 1), 2], [(1, 1), 1]],
             [[(1, 1), 3]]]
