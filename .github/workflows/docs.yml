@@ -32,6 +32,7 @@ jobs:
           apt-get update
           apt-get install -y \
             tzdata \
+            git \
             make \
             texlive \
             texlive-latex-extra \
