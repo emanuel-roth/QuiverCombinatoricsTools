@@ -123,18 +123,18 @@ def vector_decomposition(S, x):
             [[(0, 1), 4], [(1, 0), 3], [(1, 1), 1]],
             [[(0, 1), 5], [(1, 0), 4]]]
         
-        """
+    """
     x = vector(x)
     if all(i == 0 for i in x):
         return [[]]
     if not S:
         return []
     s = vector(S[0])
-    decomps = vector_decomposition(x, S[1:]) 
+    decomps = vector_decomposition(S[1:], x)
     n = 1
-    while all(i >= 0 for i in x - n*s):
-        current = vector_decomposition(v - x*s, S[1:])
-        current = [[[s,x]] + item for item in current]
+    while all(i >= 0 for i in x - n*s): 
+        current = vector_decomposition(S[1:], x - n*s)
+        current = [[[s, n]] + item for item in current]
         decomps = decomps + current
         n += 1
     return sorted(decomps)
