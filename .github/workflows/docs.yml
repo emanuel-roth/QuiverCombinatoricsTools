@@ -57,7 +57,7 @@ jobs:
           cd docs
 
           # Build HTML
-          sage -sh -c "python3 -m sphinx.cmd.build -b html . _build/html"
+          sage -sh -c "python3 -m sphinx.cmd.build -W --keep-going -b html . _build/html"
 
           # Build LaTeX
           sage -sh -c "python3 -m sphinx.cmd.build -b latex . _build/latex"
@@ -88,6 +88,14 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: pages
+
+      - name: Debug package import
+        run: |
+        sage -python -c "
+        import quiver_tools
+        print('IMPORT OK')
+        print(quiver_tools.__file__)
+        "
 
   deploy:
     needs: build
