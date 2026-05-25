@@ -313,7 +313,6 @@
 <span class="sd">            sage: random_quiver(46, 25)</span>
 <span class="sd">            a quiver with 46 vertices and 26388 arrows</span>
 <span class="sd">            </span>
-<span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_arrows_per_edge</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vertices</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vertices</span><span class="p">)]</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
@@ -374,25 +373,25 @@
 <span class="sd">        EXAMPLE::</span>
 <span class="sd">        </span>
 <span class="sd">            sage: from quivercombinatorics import *</span>
-<span class="sd">            sage: vector_decomposition((4,5), [(0,1),(1,0),(1,1)])</span>
+<span class="sd">            sage: vector_decomposition([(0,1),(1,0),(1,1)], (4,5))</span>
 <span class="sd">            [[[(0, 1), 1], [(1, 1), 4]],</span>
 <span class="sd">            [[(0, 1), 2], [(1, 0), 1], [(1, 1), 3]],</span>
 <span class="sd">            [[(0, 1), 3], [(1, 0), 2], [(1, 1), 2]],</span>
 <span class="sd">            [[(0, 1), 4], [(1, 0), 3], [(1, 1), 1]],</span>
 <span class="sd">            [[(0, 1), 5], [(1, 0), 4]]]</span>
 <span class="sd">        </span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[[]]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">S</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[]</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">decomps</span> <span class="o">=</span> <span class="n">vector_decomposition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> 
+    <span class="n">decomps</span> <span class="o">=</span> <span class="n">vector_decomposition</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">s</span><span class="p">):</span>
-        <span class="n">current</span> <span class="o">=</span> <span class="n">vector_decomposition</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-        <span class="n">current</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">s</span><span class="p">,</span><span class="n">x</span><span class="p">]]</span> <span class="o">+</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">s</span><span class="p">):</span> 
+        <span class="n">current</span> <span class="o">=</span> <span class="n">vector_decomposition</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">]]</span> <span class="o">+</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current</span><span class="p">]</span>
         <span class="n">decomps</span> <span class="o">=</span> <span class="n">decomps</span> <span class="o">+</span> <span class="n">current</span>
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">decomps</span><span class="p">)</span></div>
@@ -413,7 +412,7 @@
 <span class="sd">        EXAMPLE::</span>
 <span class="sd">        </span>
 <span class="sd">            sage: from quivercombinatorics import *</span>
-<span class="sd">            sage: small_decomp((1,1), 3)</span>
+<span class="sd">            sage: small_decomposition((1,1), 3)</span>
 <span class="sd">            [[[(1, 1), 1], [(1, 1), 1], [(1, 1), 1]],</span>
 <span class="sd">            [[(1, 1), 2], [(1, 1), 1]],</span>
 <span class="sd">            [[(1, 1), 3]]]</span>
@@ -1197,7 +1196,7 @@
         <span class="k">for</span> <span class="n">decomp</span> <span class="ow">in</span> <span class="n">all_decomps</span><span class="p">:</span>
             <span class="n">current</span> <span class="o">=</span> <span class="p">[[]]</span>
             <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">decomp</span><span class="p">:</span>
-                <span class="n">current</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">small_decomp</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">small_decomposition</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
             <span class="n">all_reps</span> <span class="o">=</span> <span class="n">all_reps</span> <span class="o">+</span> <span class="n">current</span>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">all_reps</span><span class="p">)</span></div>
 
