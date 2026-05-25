@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 # -- Project information -----------------------------------------------------
 
 project = "QuiverCombinatoricsTools"
-copyright = "2024"
+copyright = "2026"
 author = "Tudor-Ioan Caba, Mia Lam, Emanuel Roth"
 # The full version, including alpha/beta/rc tags
 release = "1.0"
@@ -45,6 +45,7 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
+mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 mathjax3_config = {
     "tex": {
         "inlineMath": [["$", "$"], ["\(", "\)"]],
@@ -73,6 +74,15 @@ html_theme_options = {
     "logo": {
         "image_light": "logo.svg",
         "image_dark": "logo-dark.svg",
-    }
+    },
+    "use_download_button": False,
 }
 html_favicon = "favicon.ico"
+
+viewcode_follow_imported_members = True
+
+autodoc_default_options = {
+    "members": True,
+    "inherited-members": True,
+    "show-inheritance": True,
+}

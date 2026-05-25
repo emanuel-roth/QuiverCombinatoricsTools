@@ -2,8 +2,15 @@
 isort:skip_file
 """
 
-from .quivercombinatorics import Quiver
 from .quivercombinatorics import (
-    N_set,
+    Quiver,
     quiver_from_cartan_matrix,
+    random_quiver,
+    N_set,
+    vector_decomposition,
+    small_decomposition,
+    ext_dimension_vector,
+    D_map,
+    D_map_on_rep,
+    is_direct_successor,
 )
