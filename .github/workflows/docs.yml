@@ -39,13 +39,12 @@ jobs:
           make html
           make latexpdf
       - name: Make sure CNAME is there
-        run:
-          echo "sage.quiver.tools" > docs/_build/html/CNAME
       - name: Create artifact
         run: |
           mkdir -p github-artifacts/docs
           mv docs/_build/latex/quivertools.pdf ./github-artifacts/documentation.pdf
           mv docs/_build/html/* ./github-artifacts
+          touch docs/_build/html/.nojekyll
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
