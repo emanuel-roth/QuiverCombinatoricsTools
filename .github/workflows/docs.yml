@@ -25,6 +25,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug package import
+        run: |
+          sage -python -c "import quiver_tools; print('IMPORT OK'); print(quiver_tools.__file__)"
+
       - name: Install dependencies
         run: |
           export DEBIAN_FRONTEND=noninteractive
@@ -44,7 +48,7 @@ jobs:
           sage --pip install sphinx
           sage --pip install sphinx-book-theme
 
-          # install your package
+          # install your package into environment
           mkdir -p /tmp/build
           cp -r . /tmp/build/
           cd /tmp/build
@@ -56,13 +60,9 @@ jobs:
         run: |
           cd docs
 
-          # Build HTML
           sage -sh -c "python3 -m sphinx.cmd.build -W --keep-going -b html . _build/html"
-
-          # Build LaTeX
           sage -sh -c "python3 -m sphinx.cmd.build -b latex . _build/latex"
 
-          # Build PDF
           cd _build/latex
           latexmk -pdf -dvi- -ps- *.tex
 
@@ -71,13 +71,9 @@ jobs:
           rm -rf pages
           mkdir -p pages
 
-          # Copy full Sphinx HTML output
           cp -a docs/_build/html/. pages/
-
-          # Prevent GitHub Jekyll interference
           touch pages/.nojekyll
 
-          # Include PDF docs if available
           mkdir -p pages/pdf
           cp docs/_build/latex/*.pdf pages/pdf/ || true
 
@@ -88,14 +84,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: pages
-
-      - name: Debug package import
-        run: |
-        sage -python -c "
-        import quiver_tools
-        print('IMPORT OK')
-        print(quiver_tools.__file__)
-        "
 
   deploy:
     needs: build
