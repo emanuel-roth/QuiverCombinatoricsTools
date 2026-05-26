@@ -1,17 +1,15 @@
-#Packages required by QuiverTools
-from sage.arith.misc import gcd
-from sage.categories.cartesian_product import cartesian_product
 from sage.combinat.root_system.cartan_matrix import CartanMatrix
 from sage.graphs.digraph import DiGraph
 from sage.matrix.constructor import matrix
 from sage.matrix.special import zero_matrix
-from sage.misc.cachefunc import cached_method
 from sage.modules.free_module_element import vector
+from sage.all import Integer
 from sage.rings.integer_ring import ZZ
 from sage.structure.element import Element
+from sage.all import Poset
+from sage.all import latex
+from quiver import *                                                
 from quiver import Quiver as BaseQuiver
-
-#Extra packages needed for QuiverToolsCombinatorics
 from sage.combinat.partition import Partitions
 from sage.combinat.posets.hasse_diagram import HasseDiagram
 from sage.misc.latex import LatexExpr
@@ -388,17 +386,23 @@ class Quiver(BaseQuiver):
             [[(2, 4, 3), 1]]]
                 
         """
-        x = self._coerce_dimension_vector(x)
-        all_decomps = vector_decomposition(x, self.sigma_lambda(l, x))
+        v = self._coerce_dimension_vector(v)
+        all_decomps = vector_decomposition(v, Q.sigma_lambda(l, v))
         all_reps = []
         for decomp in all_decomps:
             current = [[]]
             for pair in decomp:
+                next_current = []
                 if Q.is_imaginary_root(pair[0]):
-                    current = [sorted(temp + item) for item in current for temp in small_decomposition(pair[0], pair[1])]
+                    expansions = small_decomposition(pair[0], pair[1])
+                    for item in current:
+                        for temp in expansions:
+                            next_current.append(sorted(item + temp))
                 else:
-                    current = [sorted([pair] + item) for item in current]
-        all_reps = all_reps + current
+                    for item in current:
+                        next_current.append(sorted(item + [pair]))
+                current = next_current
+            all_reps.extend(current)
         return sorted(all_reps)
     
     def symplectic_leaf_dimension(self, tau):
@@ -752,8 +756,29 @@ class Quiver(BaseQuiver):
             [[(0, 1, 0), 1], [(0, 1, 1), 1], [(0, 1, 1), 2], [(1, 0, 0), 2]],
             [[(0, 1, 0), 1], [(0, 1, 1), 3], [(1, 0, 0), 2]],
             [[(2, 4, 3), 1]]],
-            [4, 2, 2, 0, 6, 4, 2, 8],
-            Finite poset containing 8 elements)
+            [0, 1, 2, 3, 4, 5, 6, 7],
+            [(0, 4),
+            (1, 5),
+            (1, 0),
+            (2, 0),
+            (2, 5),
+            (3, 2),
+            (3, 1),
+            (3, 6),
+            (4, 7),
+            (5, 4),
+            (6, 5)],
+            [(0, 4, '$A_1(1)$'),
+            (1, 5, '$A_1(1)$'),
+            (1, 0, '$c_{1}(1)$'),
+            (2, 0, '$A_1(1)$'),
+            (2, 5, '$A_1(1)$'),
+            (3, 2, '$A_1(1)$'),
+            (3, 1, '$A_1(1)$'),
+            (3, 6, '$A_1(1)$'),
+            (4, 7, '$D_{4}(1)$'),
+            (5, 4, '$c_{1}(1)$'),
+            (6, 5, '$m_{1}(1)$')])
         
         """
         if isinstance(l, (int, Integer)):
@@ -762,6 +787,8 @@ class Quiver(BaseQuiver):
             v = (v,)
         all_leaves = self.all_representation_types(l, v)
         num_of_leaves = len(all_leaves)
+        relations = []
+        edge_labels = []
         if dimensions:
             dim_counter = defaultdict(int)
             elements = []
@@ -769,10 +796,8 @@ class Quiver(BaseQuiver):
                 dim = self.symplectic_leaf_dimension(leaf)
                 elements.append((dim, dim_counter[dim]))
                 dim_counter[dim] += 1
-            else:
-                elements = list(range(num_of_leaves))
-                relations = []
-                edge_labels = []
+        else:
+            elements = list(range(num_of_leaves))
         for i in range(num_of_leaves):
             for L in self.minimal_degenerations(all_leaves[i]):
                 j = all_leaves.index(L[0])
@@ -874,7 +899,7 @@ class Quiver(BaseQuiver):
         for decomp in all_decomps:
             current = [[]]
             for pair in decomp:
-                current = [sorted(temp + item) for item in current for temp in small_decomp(pair[0], pair[1])]
+                current = [sorted(temp + item) for item in current for temp in small_decomposition(pair[0], pair[1])]
             all_reps = all_reps + current
         return sorted(all_reps)
 
@@ -912,29 +937,8 @@ class Quiver(BaseQuiver):
             [[(0, 1, 0), 1], [(0, 1, 1), 1], [(0, 1, 1), 2], [(1, 0, 0), 2]],
             [[(0, 1, 0), 1], [(0, 1, 1), 3], [(1, 0, 0), 2]],
             [[(2, 4, 3), 1]]],
-            [0, 1, 2, 3, 4, 5, 6, 7],
-            [(0, 4),
-            (1, 5),
-            (1, 0),
-            (2, 0),
-            (2, 5),
-            (3, 2),
-            (3, 1),
-            (3, 6),
-            (4, 7),
-            (5, 4),
-            (6, 5)],
-            [(0, 4, '$A_1(1)$'),
-            (1, 5, '$A_1(1)$'),
-            (1, 0, '$c_{1}(1)$'),
-            (2, 0, '$A_1(1)$'),
-            (2, 5, '$A_1(1)$'),
-            (3, 2, '$A_1(1)$'),
-            (3, 1, '$A_1(1)$'),
-            (3, 6, '$A_1(1)$'),
-            (4, 7, '$D_{4}(1)$'),
-            (5, 4, '$c_{1}(1)$'),
-            (6, 5, '$m_{1}(1)$')])
+            [4, 2, 2, 0, 6, 4, 2, 8],
+            Finite poset containing 8 elements)
         
         """
         if isinstance(l, (int, Integer)):
@@ -986,3 +990,30 @@ class Quiver(BaseQuiver):
         """
         rep_types, dimensions, rep_types_poset = self.get_Hasse_diagram_method_2(l, v)
         return rep_types_poset
+    
+    BaseQuiver.p_function = p_function
+    BaseQuiver.R_lambda_plus = R_lambda_plus
+    BaseQuiver.N_set = N_set
+    BaseQuiver.sigma_lambda = sigma_lambda
+    BaseQuiver.vector_decomposition = vector_decomposition
+    BaseQuiver.small_decomposition = small_decomposition
+    BaseQuiver.all_representation_types = all_representation_types
+    BaseQuiver.symplectic_leaf_dimension = symplectic_leaf_dimension
+    BaseQuiver.CB_decomposition = CB_decomposition
+    BaseQuiver.quiver_variety_dimension = quiver_variety_dimension
+    BaseQuiver.codimension_two_leaves = codimension_two_leaves
+    BaseQuiver.ext_quiver = ext_quiver
+    BaseQuiver.ext_dimension_vector = ext_dimension_vector
+    BaseQuiver.is_minimal_imaginary_root = is_minimal_imaginary_root
+    BaseQuiver.all_minimal_imaginary_positive_roots = all_minimal_imaginary_positive_roots
+    BaseQuiver.all_subminimal_representation_types = all_subminimal_representation_types
+    BaseQuiver.D_map = D_map
+    BaseQuiver.D_map_on_rep = D_map_on_rep
+    BaseQuiver.minimal_degenerations = minimal_degenerations
+    BaseQuiver.get_Hasse_diagram_method_1 = get_Hasse_diagram_method_1
+    BaseQuiver.plot_Hasse_diagram_method_1 = plot_Hasse_diagram_method_1
+    BaseQuiver.plot_Hasse_diagram_method_1_labels = plot_Hasse_diagram_method_1_labels
+    BaseQuiver.all_decompositions = all_decompositions
+    BaseQuiver.is_direct_successor = is_direct_successor
+    BaseQuiver.get_Hasse_diagram_method_2 = get_Hasse_diagram_method_2
+    BaseQuiver.plot_Hasse_diagram_method_2 = plot_Hasse_diagram_method_2
