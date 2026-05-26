@@ -835,6 +835,20 @@ class Quiver(BaseQuiver):
         if dimensions:
             P._dimension_labels = {x: x[0] for x in P}
         return P
+        all_leaves, elements, relations, edge_labels = self.get_Hasse_diagram_method_1(l, v, dimensions)
+    #TODo TEST THIS
+    #P = Poset((elements, relations), cover_relations=False)
+
+    #if dimensions:
+    #    dimension_labels = {}
+    #    for x in P:
+    #        if isinstance(x, tuple):
+    #            dimension_labels[x] = x[0]
+    #        else:
+    #            dimension_labels[x] = None
+    #    return P, dimension_labels
+    #
+    #return P
     
     def plot_Hasse_diagram_method_1_labels(self, l, v, dimensions=False, latex=False):
         r"""Constructs the Hasse diagram using Method 1, using ``get_Hasse_diagram_method_1``, but also outputs the labels of the minimal degenerations. The TikZ code can be seen by applying ``latex()`` to the output when ``latex`` is set to ``True``.
