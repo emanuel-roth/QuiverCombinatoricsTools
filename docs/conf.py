@@ -78,12 +78,6 @@ html_theme_options = {
 }
 html_favicon = "favicon.ico"
 
-html_static_path = ["_static"]
-
-html_css_files = [
-    "custom.css",
-]
-
 viewcode_follow_imported_members = True
 
 autodoc_default_options = {

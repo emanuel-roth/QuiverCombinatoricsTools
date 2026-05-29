@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>QuiverCombinatoricsTools &#8212; QuiverCombinatoricsTools 1.0 documentation</title>
+    <title>Generating quivers &#8212; QuiverCombinatoricsTools 1.0 documentation</title>
   
   
   
@@ -32,7 +32,6 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=6a8f3384" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -235,7 +234,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>QuiverCombinatoricsTools</h1>
+    <h1>Generating quivers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -245,53 +244,54 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-quivers">Generating quivers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quiver_from_cartan_matrix"><code class="docutils literal notranslate"><span class="pre">quiver_from_cartan_matrix()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.random_quiver"><code class="docutils literal notranslate"><span class="pre">random_quiver()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Generating quivers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quiver_from_cartan_matrix"><code class="docutils literal notranslate"><span class="pre">quiver_from_cartan_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.random_quiver"><code class="docutils literal notranslate"><span class="pre">random_quiver()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-sigma-lambda">Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.p_function"><code class="docutils literal notranslate"><span class="pre">Quiver.p_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.R_lambda_plus"><code class="docutils literal notranslate"><span class="pre">Quiver.R_lambda_plus()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.N_set"><code class="docutils literal notranslate"><span class="pre">N_set()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.sigma_lambda"><code class="docutils literal notranslate"><span class="pre">Quiver.sigma_lambda()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-sigma-lambda">Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.p_function"><code class="docutils literal notranslate"><span class="pre">Quiver.p_function()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.R_lambda_plus"><code class="docutils literal notranslate"><span class="pre">Quiver.R_lambda_plus()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.N_set"><code class="docutils literal notranslate"><span class="pre">N_set()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.sigma_lambda"><code class="docutils literal notranslate"><span class="pre">Quiver.sigma_lambda()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-decompositions">CB-decompositions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.vector_decomposition"><code class="docutils literal notranslate"><span class="pre">vector_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.small_decomposition"><code class="docutils literal notranslate"><span class="pre">small_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_representation_types()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.symplectic_leaf_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.symplectic_leaf_dimension()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.CB_decomposition"><code class="docutils literal notranslate"><span class="pre">Quiver.CB_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.quiver_variety_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.quiver_variety_dimension()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.codimension_two_leaves"><code class="docutils literal notranslate"><span class="pre">Quiver.codimension_two_leaves()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-decompositions">CB-decompositions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.vector_decomposition"><code class="docutils literal notranslate"><span class="pre">vector_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.small_decomposition"><code class="docutils literal notranslate"><span class="pre">small_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_representation_types()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.symplectic_leaf_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.symplectic_leaf_dimension()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.CB_decomposition"><code class="docutils literal notranslate"><span class="pre">Quiver.CB_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.quiver_variety_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.quiver_variety_dimension()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.codimension_two_leaves"><code class="docutils literal notranslate"><span class="pre">Quiver.codimension_two_leaves()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathrm-ext-quivers"><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.ext_quiver"><code class="docutils literal notranslate"><span class="pre">Quiver.ext_quiver()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.ext_dimension_vector"><code class="docutils literal notranslate"><span class="pre">ext_dimension_vector()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathrm-ext-quivers"><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.ext_quiver"><code class="docutils literal notranslate"><span class="pre">Quiver.ext_quiver()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.ext_dimension_vector"><code class="docutils literal notranslate"><span class="pre">ext_dimension_vector()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-minimal-degenerations-of-symplectic-leaves">Classification of minimal degenerations of symplectic leaves</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.is_minimal_imaginary_root"><code class="docutils literal notranslate"><span class="pre">Quiver.is_minimal_imaginary_root()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_minimal_imaginary_positive_roots"><code class="docutils literal notranslate"><span class="pre">Quiver.all_minimal_imaginary_positive_roots()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_subminimal_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_subminimal_representation_types()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-minimal-degenerations-of-symplectic-leaves">Classification of minimal degenerations of symplectic leaves</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.is_minimal_imaginary_root"><code class="docutils literal notranslate"><span class="pre">Quiver.is_minimal_imaginary_root()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_minimal_imaginary_positive_roots"><code class="docutils literal notranslate"><span class="pre">Quiver.all_minimal_imaginary_positive_roots()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_subminimal_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_subminimal_representation_types()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symplectic-leaves-in-hasse-diagrams">Plotting symplectic leaves in Hasse diagrams</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map"><code class="docutils literal notranslate"><span class="pre">D_map()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map_on_rep"><code class="docutils literal notranslate"><span class="pre">D_map_on_rep()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.minimal_degenerations"><code class="docutils literal notranslate"><span class="pre">Quiver.minimal_degenerations()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1_labels"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1_labels()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_decompositions"><code class="docutils literal notranslate"><span class="pre">Quiver.all_decompositions()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.is_direct_successor"><code class="docutils literal notranslate"><span class="pre">is_direct_successor()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_2()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symplectic-leaves-in-hasse-diagrams">Plotting symplectic leaves in Hasse diagrams</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map"><code class="docutils literal notranslate"><span class="pre">D_map()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map_on_rep"><code class="docutils literal notranslate"><span class="pre">D_map_on_rep()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.minimal_degenerations"><code class="docutils literal notranslate"><span class="pre">Quiver.minimal_degenerations()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_1()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1_labels"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1_labels()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_decompositions"><code class="docutils literal notranslate"><span class="pre">Quiver.all_decompositions()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.is_direct_successor"><code class="docutils literal notranslate"><span class="pre">is_direct_successor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_2()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_2()</span></code></a></li>
 </ul>
 </li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -302,9 +302,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="quivercombinatoricstools">
-<h1>QuiverCombinatoricsTools<a class="headerlink" href="#quivercombinatoricstools" title="Link to this heading">#</a></h1>
-<p><cite>QuiverCombinatoricsTools</cite> is a SageMath package that adds combinatorial functions to <cite>QuiverTools</cite> to calculate symplectic leaves of quiver varieties, available here <a class="github reference external" href="https://github.com/emanuel-roth/QuiverCombinatoricsTools">emanuel-roth/QuiverCombinatoricsTools</a>. It adds on to the <cite>QuiverTools</cite> package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen here <a class="reference external" href="https://sage.quiver.tools/">https://sage.quiver.tools/</a> and here <a class="github reference external" href="https://github.com/QuiverTools/QuiverTools">QuiverTools/QuiverTools</a>, so consult their documentation when needed.</p>
+  <p><cite>QuiverCombinatoricsTools</cite> is a SageMath package that adds combinatorial functions to <cite>QuiverTools</cite> to calculate symplectic leaves of quiver varieties, available here <a class="github reference external" href="https://github.com/emanuel-roth/QuiverCombinatoricsTools">emanuel-roth/QuiverCombinatoricsTools</a>. It adds on to the <cite>QuiverTools</cite> package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen here <a class="reference external" href="https://sage.quiver.tools/">https://sage.quiver.tools/</a> and here <a class="github reference external" href="https://github.com/QuiverTools/QuiverTools">QuiverTools/QuiverTools</a>, so consult their documentation when needed.</p>
 <p>To install it, make sure you have both <cite>QuiverTools</cite> and <cite>QuiverCombinatoricsTools</cite></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span> <span class="o">--</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">QuiverTools</span><span class="o">/</span><span class="n">QuiverTools</span><span class="o">.</span><span class="n">git</span>
 <span class="n">sage</span> <span class="o">--</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">emanuel</span><span class="o">-</span><span class="n">roth</span><span class="o">/</span><span class="n">QuiverCombinatoricsTools</span><span class="o">.</span><span class="n">git</span>
@@ -324,7 +322,7 @@
 </ul>
 <p>We were supervised by Gwyn Bellamy (University of Glasgow), as part of an <a class="reference external" href="https://www.agq-cdt.org/">AGQ</a> computing project.</p>
 <section id="generating-quivers">
-<h2>Generating quivers<a class="headerlink" href="#generating-quivers" title="Link to this heading">#</a></h2>
+<h1>Generating quivers<a class="headerlink" href="#generating-quivers" title="Link to this heading">#</a></h1>
 <p>Here are some functions that help generate quivers to test examples.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="quivercombinatorics.quiver_from_cartan_matrix">
@@ -369,7 +367,7 @@
 <p>We notate quivers by <span class="math notranslate nohighlight">\(Q\)</span>, with vertices in <span class="math notranslate nohighlight">\(Q_0\)</span> and edges in <span class="math notranslate nohighlight">\(Q_1\)</span>.</p>
 </section>
 <section id="constructing-sigma-lambda">
-<h2>Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span><a class="headerlink" href="#constructing-sigma-lambda" title="Link to this heading">#</a></h2>
+<h1>Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span><a class="headerlink" href="#constructing-sigma-lambda" title="Link to this heading">#</a></h1>
 <p>We follow William Crawley-Boevey in <a class="reference external" href="https://link.springer.com/article/10.1023/A:1017558904030">this paper</a>. Given a quiver <span class="math notranslate nohighlight">\(Q\)</span> with <span class="math notranslate nohighlight">\(n\)</span> vertices, and <span class="math notranslate nohighlight">\({\lambda}\in\mathbb{Z}^n\)</span>, <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span> is the set of <span class="math notranslate nohighlight">\(\alpha\in\mathbb{N}^n\)</span> such that <span class="math notranslate nohighlight">\(\alpha\)</span> is a positive root of <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(\alpha\cdot\lambda = 0\)</span>, and</p>
 <div class="math notranslate nohighlight">
 \[p(\alpha)&gt;\sum_{t=1}^r p(\beta^{(t)})\]</div>
@@ -458,7 +456,7 @@
 
 </section>
 <section id="cb-decompositions">
-<h2>CB-decompositions<a class="headerlink" href="#cb-decompositions" title="Link to this heading">#</a></h2>
+<h1>CB-decompositions<a class="headerlink" href="#cb-decompositions" title="Link to this heading">#</a></h1>
 <p>A <em>representation type</em> of <span class="math notranslate nohighlight">\(x\)</span> of a quiver <span class="math notranslate nohighlight">\(Q\)</span> is a sequence <span class="math notranslate nohighlight">\(\tau=(\beta^{(1)},n_1;\dots;\beta^{(k)},n_k)\)</span> with <span class="math notranslate nohighlight">\(\beta^{(i)}\in\Sigma_\lambda\)</span> and <span class="math notranslate nohighlight">\(n_i\in\mathbb{N}\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[x=\sum_{i=1}^k n_i\beta^{(i)}\]</div>
@@ -639,7 +637,7 @@
 
 </section>
 <section id="mathrm-ext-quivers">
-<h2><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers<a class="headerlink" href="#mathrm-ext-quivers" title="Link to this heading">#</a></h2>
+<h1><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers<a class="headerlink" href="#mathrm-ext-quivers" title="Link to this heading">#</a></h1>
 <p>Let <span class="math notranslate nohighlight">\(\tau=(\beta^{(1)},n_1;\dots;\beta^{(k)},n_k)\)</span> be a representation type of <span class="math notranslate nohighlight">\(Q\)</span>. The <span class="math notranslate nohighlight">\(\mathrm{ext}\)</span><em>-quiver</em> <span class="math notranslate nohighlight">\(\tilde{Q}\)</span> associated to the symplectic leaf is the quiver with <span class="math notranslate nohighlight">\(k\)</span> vertices where the number of edges between vertex <span class="math notranslate nohighlight">\(i\)</span> and vertex <span class="math notranslate nohighlight">\(j\)</span> is <span class="math notranslate nohighlight">\(-(\beta^{(i)},\beta^{(j)})\)</span> and the number of loops at vertex <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(p(\beta^{(i)})\)</span>. The corresponding dimension vector of <span class="math notranslate nohighlight">\(\tilde{Q}\)</span> is <span class="math notranslate nohighlight">\(\mathbf{n}=(n_1,\dots,n_k)\)</span>, and we take <span class="math notranslate nohighlight">\(\tilde{\lambda}=0\)</span>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="quivercombinatorics.quivercombinatorics.Quiver.ext_quiver">
@@ -680,7 +678,7 @@
 
 </section>
 <section id="classification-of-minimal-degenerations-of-symplectic-leaves">
-<h2>Classification of minimal degenerations of symplectic leaves<a class="headerlink" href="#classification-of-minimal-degenerations-of-symplectic-leaves" title="Link to this heading">#</a></h2>
+<h1>Classification of minimal degenerations of symplectic leaves<a class="headerlink" href="#classification-of-minimal-degenerations-of-symplectic-leaves" title="Link to this heading">#</a></h1>
 <p>For a quiver <span class="math notranslate nohighlight">\(Q\)</span>, a positive root <span class="math notranslate nohighlight">\(\alpha\)</span> is <em>minimal imaginary</em> if it is imaginary and given any positive root <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(\alpha&gt;\beta\)</span> implies <span class="math notranslate nohighlight">\(\beta\)</span> is real.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="quivercombinatorics.quivercombinatorics.Quiver.is_minimal_imaginary_root">
@@ -794,7 +792,7 @@
 
 </section>
 <section id="plotting-symplectic-leaves-in-hasse-diagrams">
-<h2>Plotting symplectic leaves in Hasse diagrams<a class="headerlink" href="#plotting-symplectic-leaves-in-hasse-diagrams" title="Link to this heading">#</a></h2>
+<h1>Plotting symplectic leaves in Hasse diagrams<a class="headerlink" href="#plotting-symplectic-leaves-in-hasse-diagrams" title="Link to this heading">#</a></h1>
 <p>We visualize the poset of symplectic leaves (equivalently of representation types) as a Hasse diagram: The vertices in this diagram are the representation types and the minimal degenerations, represented by an edge connecting two representation types, correspond to the situation where <span class="math notranslate nohighlight">\(L_1\leq L_2\)</span> (equivalently, <span class="math notranslate nohighlight">\(\tau_1\leq\tau_2\)</span>) but there does not exist <span class="math notranslate nohighlight">\(L_3\)</span> such that <span class="math notranslate nohighlight">\(L_1 &lt; L_3 &lt; L_2\)</span>. We wish to compute the Hasse diagram, for which there are two methods.</p>
 <div class="admonition-method-1 admonition">
 <p class="admonition-title">Method 1</p>
@@ -1114,7 +1112,6 @@
 
 <p>It seems that Method 2 is slower than Method 1, so we only implemented a TikZ exporter for Method 1.</p>
 </section>
-</section>
 
 
                 </article>
@@ -1145,53 +1142,54 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-quivers">Generating quivers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quiver_from_cartan_matrix"><code class="docutils literal notranslate"><span class="pre">quiver_from_cartan_matrix()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.random_quiver"><code class="docutils literal notranslate"><span class="pre">random_quiver()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Generating quivers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quiver_from_cartan_matrix"><code class="docutils literal notranslate"><span class="pre">quiver_from_cartan_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.random_quiver"><code class="docutils literal notranslate"><span class="pre">random_quiver()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-sigma-lambda">Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.p_function"><code class="docutils literal notranslate"><span class="pre">Quiver.p_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.R_lambda_plus"><code class="docutils literal notranslate"><span class="pre">Quiver.R_lambda_plus()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.N_set"><code class="docutils literal notranslate"><span class="pre">N_set()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.sigma_lambda"><code class="docutils literal notranslate"><span class="pre">Quiver.sigma_lambda()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-sigma-lambda">Constructing <span class="math notranslate nohighlight">\(\Sigma_{\lambda}\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.p_function"><code class="docutils literal notranslate"><span class="pre">Quiver.p_function()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.R_lambda_plus"><code class="docutils literal notranslate"><span class="pre">Quiver.R_lambda_plus()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.N_set"><code class="docutils literal notranslate"><span class="pre">N_set()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.sigma_lambda"><code class="docutils literal notranslate"><span class="pre">Quiver.sigma_lambda()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-decompositions">CB-decompositions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.vector_decomposition"><code class="docutils literal notranslate"><span class="pre">vector_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.small_decomposition"><code class="docutils literal notranslate"><span class="pre">small_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_representation_types()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.symplectic_leaf_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.symplectic_leaf_dimension()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.CB_decomposition"><code class="docutils literal notranslate"><span class="pre">Quiver.CB_decomposition()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.quiver_variety_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.quiver_variety_dimension()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.codimension_two_leaves"><code class="docutils literal notranslate"><span class="pre">Quiver.codimension_two_leaves()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-decompositions">CB-decompositions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.vector_decomposition"><code class="docutils literal notranslate"><span class="pre">vector_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.small_decomposition"><code class="docutils literal notranslate"><span class="pre">small_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_representation_types()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.symplectic_leaf_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.symplectic_leaf_dimension()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.CB_decomposition"><code class="docutils literal notranslate"><span class="pre">Quiver.CB_decomposition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.quiver_variety_dimension"><code class="docutils literal notranslate"><span class="pre">Quiver.quiver_variety_dimension()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.codimension_two_leaves"><code class="docutils literal notranslate"><span class="pre">Quiver.codimension_two_leaves()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathrm-ext-quivers"><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.ext_quiver"><code class="docutils literal notranslate"><span class="pre">Quiver.ext_quiver()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.ext_dimension_vector"><code class="docutils literal notranslate"><span class="pre">ext_dimension_vector()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathrm-ext-quivers"><span class="math notranslate nohighlight">\(\mathrm{ext}\)</span>-quivers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.ext_quiver"><code class="docutils literal notranslate"><span class="pre">Quiver.ext_quiver()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.ext_dimension_vector"><code class="docutils literal notranslate"><span class="pre">ext_dimension_vector()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-minimal-degenerations-of-symplectic-leaves">Classification of minimal degenerations of symplectic leaves</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.is_minimal_imaginary_root"><code class="docutils literal notranslate"><span class="pre">Quiver.is_minimal_imaginary_root()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_minimal_imaginary_positive_roots"><code class="docutils literal notranslate"><span class="pre">Quiver.all_minimal_imaginary_positive_roots()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_subminimal_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_subminimal_representation_types()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-of-minimal-degenerations-of-symplectic-leaves">Classification of minimal degenerations of symplectic leaves</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.is_minimal_imaginary_root"><code class="docutils literal notranslate"><span class="pre">Quiver.is_minimal_imaginary_root()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_minimal_imaginary_positive_roots"><code class="docutils literal notranslate"><span class="pre">Quiver.all_minimal_imaginary_positive_roots()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_subminimal_representation_types"><code class="docutils literal notranslate"><span class="pre">Quiver.all_subminimal_representation_types()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symplectic-leaves-in-hasse-diagrams">Plotting symplectic leaves in Hasse diagrams</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map"><code class="docutils literal notranslate"><span class="pre">D_map()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map_on_rep"><code class="docutils literal notranslate"><span class="pre">D_map_on_rep()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.minimal_degenerations"><code class="docutils literal notranslate"><span class="pre">Quiver.minimal_degenerations()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1_labels"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1_labels()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_decompositions"><code class="docutils literal notranslate"><span class="pre">Quiver.all_decompositions()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.is_direct_successor"><code class="docutils literal notranslate"><span class="pre">is_direct_successor()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_2()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-symplectic-leaves-in-hasse-diagrams">Plotting symplectic leaves in Hasse diagrams</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map"><code class="docutils literal notranslate"><span class="pre">D_map()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.D_map_on_rep"><code class="docutils literal notranslate"><span class="pre">D_map_on_rep()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.minimal_degenerations"><code class="docutils literal notranslate"><span class="pre">Quiver.minimal_degenerations()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_1()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1_labels"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_1_labels()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.all_decompositions"><code class="docutils literal notranslate"><span class="pre">Quiver.all_decompositions()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.is_direct_successor"><code class="docutils literal notranslate"><span class="pre">is_direct_successor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.get_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.get_Hasse_diagram_method_2()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_2"><code class="docutils literal notranslate"><span class="pre">Quiver.plot_Hasse_diagram_method_2()</span></code></a></li>
 </ul>
 </li>
 </ul>
+
   </nav></div>
 
 </div></div>
