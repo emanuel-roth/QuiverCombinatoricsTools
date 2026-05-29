@@ -1172,9 +1172,10 @@
 <span class="sd">        EXAMPLE::</span>
 
 <span class="sd">            sage: from quivercombinatorics import *</span>
+<span class="sd">            sage: from sage.all import latex</span>
 <span class="sd">            sage: C = [[2, -1, 0], [-1, 2, -2], [0, -2, 2]]</span>
 <span class="sd">            sage: Q = quiver_from_cartan_matrix(C)</span>
-<span class="sd">            sage: P = self.plot_Hasse_diagram_method_1_labels((0, 0, 0), (2, 4, 3), latex=True, dimensions=True)</span>
+<span class="sd">            sage: P = Q.plot_Hasse_diagram_method_1_labels((0, 0, 0), (2, 4, 3), latex=True, dimensions=True)</span>
 <span class="sd">            sage: P.set_latex_options(format=&#39;dot2tex&#39;, prog=&#39;dot&#39;, rankdir=&#39;up&#39;, edge_labels=True, color_by_label=False)</span>
 <span class="sd">            sage: tex_code = latex(P)</span>
 <span class="sd">            sage: with open(&quot;poset_diagram.tex&quot;, &quot;w&quot;) as f:</span>

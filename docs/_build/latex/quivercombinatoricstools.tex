@@ -83,7 +83,7 @@
 
 
 \title{QuiverCombinatoricsTools}
-\date{May 25, 2026}
+\date{May 29, 2026}
 \release{1.0}
 \author{Tudor\sphinxhyphen{}Ioan Caba, Mia Lam, Emanuel Roth}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -317,7 +317,7 @@ INPUT:
 \end{itemize}
 
 \sphinxAtStartPar
-OUTPUT: A list of elements of \(R_\lambda^+\), where \sphinxcode{\sphinxupquote{l}} is \sphinxtitleref{lambda}, the set of positive roots \(\alpha\) with \(\alpha\cdot\lambda=0\), up to the upper bound \(v\)
+OUTPUT: A list of elements of \(R_\lambda^+\), where \sphinxcode{\sphinxupquote{l}} is \(\lambda\), the set of positive roots \(\alpha\) with \(\alpha\cdot\lambda=0\), up to the upper bound \(v\)
 
 \sphinxAtStartPar
 EXAMPLE:
@@ -404,7 +404,7 @@ INPUT:
 \end{itemize}
 
 \sphinxAtStartPar
-OUTPUT: A list of elements of \(\Sigma_\lambda\), where \sphinxcode{\sphinxupquote{l}} is \sphinxtitleref{lambda}, up to the upper bound \(v\)
+OUTPUT: A list of elements of \(\Sigma_\lambda\), where \sphinxcode{\sphinxupquote{l}} is \(\lambda\), up to the upper bound \(v\)
 
 \sphinxAtStartPar
 EXAMPLE:
@@ -456,7 +456,7 @@ INPUT:
 
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{S}} – a list of vectors \sphinxtitleref{S} in \(\mathbb{Z}Q_0\)
+\sphinxcode{\sphinxupquote{S}} – a list of vectors \(S\) in \(\mathbb{Z}Q_0\)
 
 \end{itemize}
 
@@ -550,7 +550,7 @@ INPUT:
 \end{itemize}
 
 \sphinxAtStartPar
-OUTPUT: A list of representation types of a quiver, with respect to \(x\), and where \sphinxcode{\sphinxupquote{l}} is \sphinxtitleref{lambda}. Each representation type is stored as a list whose elements are 2\sphinxhyphen{}tuples, the first element is in \(\mathbb{N}Q_0\), and the second is in \(\mathbb{N}\)
+OUTPUT: A list of representation types of a quiver, with respect to \(x\), and where \sphinxcode{\sphinxupquote{l}} is \(\lambda\). Each representation type is stored as a list whose elements are 2\sphinxhyphen{}tuples, the first element is in \(\mathbb{N}Q_0\), and the second is in \(\mathbb{N}\)
 
 \sphinxAtStartPar
 EXAMPLES:
@@ -1265,8 +1265,29 @@ EXAMPLES:
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
-\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{]}\PYG{p}{,}
-\PYG{n}{Finite} \PYG{n}{poset} \PYG{n}{containing} \PYG{l+m+mi}{8} \PYG{n}{elements}\PYG{p}{)}
+\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{]}\PYG{p}{,}
+\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}c\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}D\PYGZus{}}\PYG{l+s+si}{\PYGZob{}4\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}c\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}m\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{fulllineitems}
@@ -1329,6 +1350,13 @@ To export this Hasse diagram as a TikZ diagram, we need to install \sphinxcode{\
 \PYG{n}{sage} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{n}{pip} \PYG{n}{install} \PYG{n}{dot2tex}
 \PYG{n}{sage} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{n}{pip} \PYG{n}{install} \PYG{n}{graphviz}
 \end{sphinxVerbatim}
+
+\sphinxAtStartPar
+and then make sure you import the following
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{sage}\PYG{n+nn}{.}\PYG{n+nn}{all}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{latex}
+\end{sphinxVerbatim}
 \index{plot\_Hasse\_diagram\_method\_1\_labels() (quivercombinatorics.quivercombinatorics.Quiver method)@\spxentry{plot\_Hasse\_diagram\_method\_1\_labels()}\spxextra{quivercombinatorics.quivercombinatorics.Quiver method}}
 
 \begin{fulllineitems}
@@ -1359,7 +1387,7 @@ INPUT:
 
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{latex}} – When set to \sphinxcode{\sphinxupquote{True}}, the labels will be formatted to be ready for a latex export.
+\sphinxcode{\sphinxupquote{latex}} – When set to \sphinxcode{\sphinxupquote{True}}, the labels will be formatted to be ready for a latex export
 
 \end{itemize}
 
@@ -1371,9 +1399,10 @@ EXAMPLE:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{sage}\PYG{p}{:} \PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{quivercombinatorics}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{o}{*}
+\PYG{n}{sage}\PYG{p}{:} \PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{sage}\PYG{n+nn}{.}\PYG{n+nn}{all}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{latex}
 \PYG{n}{sage}\PYG{p}{:} \PYG{n}{C} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{]}
 \PYG{n}{sage}\PYG{p}{:} \PYG{n}{Q} \PYG{o}{=} \PYG{n}{quiver\PYGZus{}from\PYGZus{}cartan\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{C}\PYG{p}{)}
-\PYG{n}{sage}\PYG{p}{:} \PYG{n}{P} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{plot\PYGZus{}Hasse\PYGZus{}diagram\PYGZus{}method\PYGZus{}1\PYGZus{}labels}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,} \PYG{n}{latex}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{dimensions}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{sage}\PYG{p}{:} \PYG{n}{P} \PYG{o}{=} \PYG{n}{Q}\PYG{o}{.}\PYG{n}{plot\PYGZus{}Hasse\PYGZus{}diagram\PYGZus{}method\PYGZus{}1\PYGZus{}labels}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,} \PYG{n}{latex}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{dimensions}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
 \PYG{n}{sage}\PYG{p}{:} \PYG{n}{P}\PYG{o}{.}\PYG{n}{set\PYGZus{}latex\PYGZus{}options}\PYG{p}{(}\PYG{n+nb}{format}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dot2tex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{prog}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{rankdir}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{up}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{edge\PYGZus{}labels}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{color\PYGZus{}by\PYGZus{}label}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
 \PYG{n}{sage}\PYG{p}{:} \PYG{n}{tex\PYGZus{}code} \PYG{o}{=} \PYG{n}{latex}\PYG{p}{(}\PYG{n}{P}\PYG{p}{)}
 \PYG{n}{sage}\PYG{p}{:} \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{poset\PYGZus{}diagram.tex}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{w}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
@@ -1562,29 +1591,8 @@ EXAMPLES:
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
 \PYG{p}{[}\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,}
-\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{]}\PYG{p}{,}
-\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
-\PYG{p}{[}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}c\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}1(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}D\PYGZus{}}\PYG{l+s+si}{\PYGZob{}4\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}c\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
-\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}m\PYGZus{}}\PYG{l+s+si}{\PYGZob{}1\PYGZcb{}}\PYG{l+s+s1}{(1)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{]}\PYG{p}{,}
+\PYG{n}{Finite} \PYG{n}{poset} \PYG{n}{containing} \PYG{l+m+mi}{8} \PYG{n}{elements}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{fulllineitems}

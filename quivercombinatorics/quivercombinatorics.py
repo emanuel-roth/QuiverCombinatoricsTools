@@ -852,9 +852,10 @@ class Quiver(BaseQuiver):
         EXAMPLE::
 
             sage: from quivercombinatorics import *
+            sage: from sage.all import latex
             sage: C = [[2, -1, 0], [-1, 2, -2], [0, -2, 2]]
             sage: Q = quiver_from_cartan_matrix(C)
-            sage: P = self.plot_Hasse_diagram_method_1_labels((0, 0, 0), (2, 4, 3), latex=True, dimensions=True)
+            sage: P = Q.plot_Hasse_diagram_method_1_labels((0, 0, 0), (2, 4, 3), latex=True, dimensions=True)
             sage: P.set_latex_options(format='dot2tex', prog='dot', rankdir='up', edge_labels=True, color_by_label=False)
             sage: tex_code = latex(P)
             sage: with open("poset_diagram.tex", "w") as f:

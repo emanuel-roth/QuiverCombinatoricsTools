@@ -196,6 +196,12 @@ To export this Hasse diagram as a TikZ diagram, we need to install ``dot2tex`` a
    sage --pip install dot2tex
    sage --pip install graphviz
 
+and then make sure you import the following
+
+.. code-block::
+
+   from sage.all import latex
+
 .. automethod:: quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1_labels
 
 The example above should export the following diagram:
