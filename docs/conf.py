@@ -4,25 +4,14 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-
-# from sage.env import SAGE_DOC_SRC, SAGE_DOC, SAGE_SRC
-#
-# try:
-#    import sage.all
-# except ImportError:
-#    raise RuntimeError("to build the documentation you need to be inside a Sage shell (run first the command 'sage -sh' in a shell")
-
 import os
 import sys
-from sage.env import SAGE_DOC_SRC
-import sage.all
+try:
+    import sage.all
+except ImportError:
+    sage = None
 
-sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + "/.."))
 
 # -- Project information -----------------------------------------------------
 
@@ -47,7 +36,7 @@ extensions = [
 mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 mathjax3_config = {
     "tex": {
-        "inlineMath": [["$", "$"], ["\(", "\)"]],
+        "inlineMath": [["$", "$"], ["\\(", "\\)"]],
         "displayMath": [["$$", "$$"], ["\\[", "\\]"]],
     },
 }
@@ -68,15 +57,16 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_book_theme"
+html_theme = "furo"
+html_static_path = ["_static"]
+html_css_files = [
+    "custom.css",
+]
 html_theme_options = {
-    "logo": {
-        "image_light": "logo.svg",
-        "image_dark": "logo-dark.svg",
-    },
-    "use_download_button": False,
+    "light_logo": "logo.svg",
+    "dark_logo": "logo-dark.svg",
 }
-html_favicon = "favicon.ico"
+html_favicon = "_static/favicon.ico"
 
 viewcode_follow_imported_members = True
 
