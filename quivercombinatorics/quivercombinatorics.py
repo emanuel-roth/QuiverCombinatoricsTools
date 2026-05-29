@@ -859,7 +859,7 @@ class Quiver(BaseQuiver):
             sage: P.set_latex_options(format='dot2tex', prog='dot', rankdir='up', edge_labels=True, color_by_label=False)
             sage: tex_code = latex(P)
             sage: with open("poset_diagram.tex", "w") as f:
-            sage; f.write(tex_code)
+            ....:     f.write(tex_code)
         
         """
         all_leaves, elements, relations, edge_labels = self.get_Hasse_diagram_method_1(l, v, dimensions)
