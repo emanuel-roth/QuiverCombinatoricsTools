@@ -14,9 +14,12 @@ Then, in any sage code, use `from quivercombinatorics import *` to get started.
 
 # Documentation
 
+You can read the documentation of QuiverCombinatoricsTools as:
+
+* [a webpage](https://emanuel-roth.github.io/QuiverCombinatoricsTools)
+* [a pdf](https://github.com/emanuel-roth/QuiverCombinatoricsTools/blob/main/docs/_build/latex/quivercombinatoricstools.pdf)
+
 You can read the documentation of the original QuiverTools as:
 
 * [a webpage](https://sage.quiver.tools)
 * [a pdf](https://sage.quiver.tools/documentation.pdf)
-
-For the documentation of QuiverCombinatoricsTools, look here: https://emanuel-roth.github.io/QuiverCombinatoricsTools.
