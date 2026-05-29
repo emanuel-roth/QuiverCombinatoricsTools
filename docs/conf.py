@@ -38,7 +38,10 @@ mathjax3_config = {
     "tex": {
         "inlineMath": [["$", "$"], ["\\(", "\\)"]],
         "displayMath": [["$$", "$$"], ["\\[", "\\]"]],
-    },
+        "linebreaks": {
+            "automatic": True
+        }
+    }
 }
 
 latex_engine = "lualatex"
