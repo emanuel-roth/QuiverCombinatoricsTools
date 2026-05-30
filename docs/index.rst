@@ -205,7 +205,7 @@ We visualize the poset of symplectic leaves (equivalently of representation type
    
 .. automethod:: quivercombinatorics.quivercombinatorics.Quiver.plot_Hasse_diagram_method_1
 
-To export this Hasse diagram as a TikZ diagram, we need to install ``dot2tex`` and ``graphviz``.
+To export this Hasse diagram as a TikZ diagram, you need to install ``dot2tex`` and ``graphviz``.
 
 .. code-block::
 
